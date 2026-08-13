@@ -3,44 +3,31 @@
 This repository contains the practical lab assignments and experiments for the **Business Intelligence (BI) Lab** course, curated for the **5th Semester** curriculum under the **University of Calcutta (CU)**.
 
 ## 📂 Repository Contents
-* **Experiment 1:** [Experiment 1](./Experiment 1)
-* **Experiment 2:** [Experiment 2](./Experiment 2)
+
+* **Experiment 1:**
+* **Experiment 2:**
+
+> 📌 **Automatic Update:**
+> The repository is configured to automatically detect newly added experiment folders and update this section of the README.
+> Simply add a new folder to the repository and push your changes. The README will automatically include the new folder in the **Repository Contents** section.
+
 ## 🛠️ Tools & Technologies
 
 * SQL / Oracle / MySQL
 * Microsoft Power BI / Tableau
 * Python / R (if applicable)
 
-## 📌 About This Repository
+## ⚡ Features
 
-This repository is maintained for academic learning, practical laboratory work, and documentation of Business Intelligence experiments.
+* 📁 Automatic detection of new experiment folders
+* 🔄 Automatic README update using GitHub Actions
+* 📚 Organized experiment-wise structure
+* 📊 Support for Power BI and other BI tools
+* 📄 Documentation and practical reports
+* 🔗 Direct links to experiment folders
 
-Each experiment folder contains the relevant:
+## 🎓 Purpose
 
-* Problem Statement
-* Dataset
-* BI Project File
-* Documentation
-* Exported PDF Report
-* Screenshots
-* Supporting files
+This repository is maintained for **academic learning, practical laboratory work, experiment documentation, and Business Intelligence project development**.
 
-## 🤖 Automatic README Update
-
-The repository uses **GitHub Actions** to automatically detect newly added experiment folders and update the **Repository Contents** section of this README.
-
-Simply create and push a new folder such as:
-
-`Experiment-3`
-
-The README will automatically become:
-
-* **Experiment 1:** [Experiment 1](./Experiment-1)
-* **Experiment 2:** [Experiment 2](./Experiment-2)
-* **Experiment 3:** [Experiment 3](./Experiment-3)
-
-No manual README editing is required.
-
-## 🎓 Academic Reference
-
-Feel free to explore the code, BI projects, reports, datasets, and documentation for academic reference and learning purposes.
+Feel free to explore the experiments, code, datasets, BI files, and documentation for academic reference.
