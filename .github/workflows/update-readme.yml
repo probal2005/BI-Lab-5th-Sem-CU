@@ -1,0 +1,71 @@
+name: Auto Update README
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate Experiment List
+        run: |
+          python3 << 'PY'
+          import os
+          import re
+
+          readme = "README.md"
+
+          with open(readme, "r", encoding="utf-8") as f:
+              content = f.read()
+
+          experiments = []
+
+          for item in sorted(os.listdir(".")):
+              if os.path.isdir(item) and item.lower().startswith("experiment"):
+                  experiments.append(item)
+
+          section = "## 📂 Repository Contents\n"
+
+          if experiments:
+              for folder in experiments:
+                  name = folder.replace("-", " ")
+                  section += f"* **{name}:** [{name}](./{folder})\n"
+          else:
+              section += "* No experiments added yet.\n"
+
+          pattern = r"## 📂 Repository Contents\n.*?(?=\n## |\Z)"
+
+          new_content = re.sub(
+              pattern,
+              section.rstrip(),
+              content,
+              flags=re.DOTALL
+          )
+
+          with open(readme, "w", encoding="utf-8") as f:
+              f.write(new_content)
+          PY
+
+      - name: Commit README changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add README.md
+
+          if git diff --cached --quiet; then
+            echo "No README changes."
+          else
+            git commit -m "docs: auto update README experiment list"
+            git push
+          fi
