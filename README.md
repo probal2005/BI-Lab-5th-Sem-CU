@@ -3,9 +3,8 @@
 This repository contains the practical lab assignments and experiments for the **Business Intelligence (BI) Lab** course, curated for the **5th Semester** curriculum under the **University of Calcutta (CU)**.
 
 ## 📂 Repository Contents
-* **Experiment 1:**
-* **Experiment 2:**
-
+* **Experiment 1:** [Experiment 1](./Experiment 1)
+* **Experiment 2:** [Experiment 2](./Experiment 2)
 ## 🛠️ Tools & Technologies (Example)
 * SQL / Oracle / MySQL
 * Microsoft Power BI / Tableau
