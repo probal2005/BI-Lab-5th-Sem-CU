@@ -3,14 +3,8 @@
 This repository contains the practical lab assignments and experiments for the **Business Intelligence (BI) Lab** course, curated for the **5th Semester** curriculum under the **University of Calcutta (CU)**.
 
 ## 📂 Repository Contents
-
-* **Experiment 1:**
-* **Experiment 2:**
-
-> 📌 **Automatic Update:**
-> The repository is configured to automatically detect newly added experiment folders and update this section of the README.
-> Simply add a new folder to the repository and push your changes. The README will automatically include the new folder in the **Repository Contents** section.
-
+* **Experiment 1:** [Experiment 1](./Experiment 1)
+* **Experiment 2:** [Experiment 2](./Experiment 2)
 ## 🛠️ Tools & Technologies
 
 * SQL / Oracle / MySQL
