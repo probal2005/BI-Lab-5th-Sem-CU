@@ -1,9 +1,7 @@
-name: Auto Update README
+name: Update README
 
 on:
   push:
-    branches:
-      - main
   workflow_dispatch:
 
 permissions:
@@ -17,55 +15,62 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Generate Experiment List
+      - name: Update README
         run: |
           python3 << 'PY'
           import os
           import re
 
-          readme = "README.md"
+          folders = []
 
-          with open(readme, "r", encoding="utf-8") as f:
-              content = f.read()
+          for name in os.listdir("."):
+              if os.path.isdir(name) and name.startswith("Experiment"):
+                  folders.append(name)
 
-          experiments = []
+          folders.sort()
 
-          for item in sorted(os.listdir(".")):
-              if os.path.isdir(item) and item.lower().startswith("experiment"):
-                  experiments.append(item)
+          lines = ["## 📂 Repository Contents", ""]
 
-          section = "## 📂 Repository Contents\n"
-
-          if experiments:
-              for folder in experiments:
-                  name = folder.replace("-", " ")
-                  section += f"* **{name}:** [{name}](./{folder})\n"
+          if folders:
+              for folder in folders:
+                  display = folder.replace("-", " ")
+                  lines.append(
+                      f"* **{display}:** [{display}](./{folder})"
+                  )
           else:
-              section += "* No experiments added yet.\n"
+              lines.append("* No experiments added yet.")
 
-          pattern = r"## 📂 Repository Contents\n.*?(?=\n## |\Z)"
+          new_section = "\n".join(lines)
 
-          new_content = re.sub(
-              pattern,
-              section.rstrip(),
-              content,
-              flags=re.DOTALL
-          )
+          with open("README.md", "r", encoding="utf-8") as f:
+              readme = f.read()
 
-          with open(readme, "w", encoding="utf-8") as f:
-              f.write(new_content)
+          pattern = r"## 📂 Repository Contents.*?(?=\n## |\Z)"
+
+          if re.search(pattern, readme, re.DOTALL):
+              readme = re.sub(
+                  pattern,
+                  new_section,
+                  readme,
+                  flags=re.DOTALL
+              )
+          else:
+              readme += "\n\n" + new_section + "\n"
+
+          with open("README.md", "w", encoding="utf-8") as f:
+              f.write(readme)
           PY
 
-      - name: Commit README changes
+      - name: Save README changes
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add README.md
 
           if git diff --cached --quiet; then
-            echo "No README changes."
+            echo "No changes needed."
           else
-            git commit -m "docs: auto update README experiment list"
+            git commit -m "docs: update experiment list"
             git push
           fi
