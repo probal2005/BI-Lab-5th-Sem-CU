@@ -12,6 +12,8 @@ This repository contains the practical lab assignments and experiments for the *
 * **Experiment 6:** [Experiment 6](./Experiment 6)
 * **Experiment 7:** [Experiment 7](./Experiment 7)
 * **Experiment 8:** [Experiment 8](./Experiment 8)
+* **Assignment 1:**
+* **MST LAB**
 ## 🛠️ Tools & Technologies
 
 * SQL / Oracle / MySQL
