@@ -8,6 +8,7 @@ This repository contains the practical lab assignments and experiments for the *
 * **Experiment 2:** [Experiment 2](./Experiment 2)
 * **Experiment 3:** [Experiment 3](./Experiment 3)
 * **Experiment 4:** [Experiment 4](./Experiment 4)
+* **Experiment 5:** [Experiment 5](./Experiment 5)
 ## 🛠️ Tools & Technologies
 
 * SQL / Oracle / MySQL
